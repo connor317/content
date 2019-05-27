@@ -13,13 +13,20 @@ configuration:
   name: tenant_id
   required: true
   type: 4
-- display: Token (received from the admin consent - see Detailed Instructions (?)
-    section)
+- display: Authentication Token (see Detailed Instructions (?) section)
   name: token
   required: true
   type: 4
+- display: Authentication ID (see Detailed Instructions (?) section)
+  name: auth_id
+  required: true
+  type: 4
+- display: Authentication Key (see Detailed Instructions (?) section)
+  name: auth_key
+  required: true
+  type: 4
 - display: Trust any certificate (not secure)
-  name: unsecure
+  name: insecure
   required: false
   type: 8
 - display: Use system proxy
@@ -358,10 +365,11 @@ script:
     - contextPath: File.Extension
       description: File's Extension
       type: String
-  dockerimage: demisto/python3:3.7.3.221
+  dockerimage: demisto/crypto:1.0.0.303
   isfetch: false
   runonce: false
-  script: ''
+  script: '-'
   type: python
+releaseNotes: Updated Demistobot-OAuth2 Flow
 tests:
 - MicrosoftGraphMail-Test
