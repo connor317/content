@@ -735,6 +735,77 @@ script:
     description: Free-form text associated with specific model
     execution: false
     name: threatstream-get-threat-model-description-by-id
+  - arguments:
+    - auto: PREDEFINED
+      default: false
+      description: Threat model
+      isArray: false
+      name: model
+      predefined:
+      - actor
+      - ' campaign'
+      - ' incident'
+      - ' signature'
+      - ' ttp'
+      - ' vulnerability'
+      - ' tipreport'
+      required: true
+      secret: false
+    - default: false
+      description: The ID of the model
+      isArray: false
+      name: id
+      required: true
+      secret: false
+    - default: false
+      defaultValue: '20'
+      description: Limits the number of returned results
+      isArray: false
+      name: limit
+      required: false
+      secret: false
+    deprecated: false
+    description: Returns a list of indecators associated with the specified model
+      and model's id
+    execution: false
+    name: threatstream-get-indicators-by-model-id
+    outputs:
+    - contextPath: ThreatStream.Model.ModelType
+      description: The type of Threat model
+      type: String
+    - contextPath: ThreatStream.Model.ModelID
+      description: The ID of Threat Model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.Value
+      description: The value of indicator associated with the specified model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.ID
+      description: The ID of indicator associated with the specified model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.IType
+      description: The iType of indicator associated with the specified model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.Severity
+      description: The severity of indicator associated with the specified model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.Confidence
+      description: The confidence of indicator associated with the specified model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.Country
+      description: The courty of indicator associated with the specified model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.Organization
+      description: The organization of indicator associated with the specified model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.ASN
+      description: The ASN of indicator associated with the specified model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.Status
+      description: The status of indicator associated with the specified model
+      type: String
+    - contextPath: ThreatStream.Model.Indicators.Tags
+      description: The tags of indicator associated with the specified model
+      type: String
   isfetch: false
   runonce: false
   script: '-'
