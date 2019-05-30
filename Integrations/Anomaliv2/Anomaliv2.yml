@@ -806,6 +806,79 @@ script:
     - contextPath: ThreatStream.Model.Indicators.Tags
       description: The tags of indicator associated with the specified model
       type: String
+  - arguments:
+    - auto: PREDEFINED
+      default: false
+      defaultValue: Private
+      description: Classification of the Sandbox submission
+      isArray: false
+      name: report-radio-classification
+      predefined:
+      - Private
+      - ' Public'
+      required: true
+      secret: false
+    - auto: PREDEFINED
+      default: false
+      defaultValue: WINDOWS7
+      description: Platform on which the submitted URL or file will be run. In order
+        to obtain a list supported platforms run threatstream-get-sandbox-platforms.
+      isArray: false
+      name: report-radio-platform
+      predefined:
+      - WINDOWS7
+      - ' MACOSX'
+      - ' WINDOWS7OFFICE2010'
+      - ' WINDOWS10x64'
+      - ' ALL'
+      required: true
+      secret: false
+    - auto: PREDEFINED
+      default: false
+      defaultValue: File
+      description: Specify type that wanted to detonated
+      isArray: false
+      name: report-type
+      predefined:
+      - File
+      - ' URL'
+      required: true
+      secret: false
+    - default: false
+      description: Specify value that wanted to detonated. Valid URL or file id that
+        was uploaded to war room.
+      isArray: false
+      name: report-value
+      required: true
+      secret: false
+    - auto: PREDEFINED
+      default: false
+      defaultValue: 'False'
+      description: Specify whether the premium sandbox should be used for detonation.
+      isArray: false
+      name: use-premium-sandbox
+      predefined:
+      - 'False'
+      - ' True'
+      required: false
+      secret: false
+    - default: false
+      description: A comma-separated list that provides additional details for the
+        indicator
+      isArray: false
+      name: detail
+      required: false
+      secret: false
+    - default: false
+      description: ID of the trusted circle to which the Sandbox data should be associated
+      isArray: false
+      name: trusted-circles
+      required: false
+      secret: false
+    deprecated: false
+    description: Submits files or URLs to the ThreatStream-hosted Sandbox
+    execution: false
+    name: threatstream-submit-to-sandbox
   isfetch: false
   runonce: false
   script: '-'
