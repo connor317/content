@@ -812,7 +812,7 @@ script:
       defaultValue: Private
       description: Classification of the Sandbox submission
       isArray: false
-      name: report-radio-classification
+      name: report-classification
       predefined:
       - Private
       - ' Public'
@@ -824,7 +824,7 @@ script:
       description: Platform on which the submitted URL or file will be run. In order
         to obtain a list supported platforms run threatstream-get-sandbox-platforms.
       isArray: false
-      name: report-radio-platform
+      name: report-platform
       predefined:
       - WINDOWS7
       - ' MACOSX'
@@ -899,16 +899,19 @@ script:
     deprecated: false
     description: Returns the current status of report that was submitted to sandbox
     execution: false
-    name: threatstream-get-report-status-form-sandbox
+    name: threatstream-get-report-status-from-sandbox
     outputs:
     - contextPath: ThreatStream.Sandbox.ID
-      description: The report ID that was detonated to sandbox
+      description: The report ID of the file or URL that was detonated to sandbox
       type: String
     - contextPath: ThreatStream.Sandbox.Status
-      description: The status of report that was detonated to sandbox
+      description: The report status of the file or URL that was detonated to sandbox
       type: String
     - contextPath: ThreatStream.Sandbox.Platform
-      description: The platform of report that was detonated to sanbox
+      description: The platfrom that was used for detonation
+      type: String
+    - contextPath: ThreatStream.Sandbox.Verdict
+      description: The report verdict of the file or URL that was detonated to sandbox
       type: String
   - arguments:
     - default: false
@@ -921,6 +924,89 @@ script:
     description: Returns report of file or URL that was submitted to sandbox
     execution: false
     name: threatstream-get-report-from-sandbox
+    outputs:
+    - contextPath: ThreatStream.SandboxReport.ID
+      description: The ID of the report from sandbox
+      type: String
+    - contextPath: ThreatStream.SandboxReport.Category
+      description: The category of report
+      type: String
+    - contextPath: ThreatStream.SandboxReport.Started
+      description: The start time of detonation
+      type: String
+    - contextPath: ThreatStream.SandboxReport.Completed
+      description: The complete time of detonation
+      type: String
+    - contextPath: ThreatStream.SandboxReport.Duration
+      description: Duration of detonation in seconds
+      type: Number
+    - contextPath: ThreatStream.SandboxReport.VmName
+      description: The name of VM
+      type: String
+    - contextPath: ThreatStream.SandboxReport.VmID
+      description: The ID of VM
+      type: String
+    - contextPath: ThreatStream.SandboxReport.File.Type
+      description: The type of uploaded file
+      type: String
+    - contextPath: ThreatStream.SandboxReport.File.Size
+      description: The size of uploaded file
+      type: String
+    - contextPath: ThreatStream.SandboxReport.File.MD5
+      description: The MD5 of uploaded file
+      type: String
+    - contextPath: ThreatStream.SandboxReport.File.SHA1
+      description: The SHA1 of uploaded file
+      type: String
+    - contextPath: ThreatStream.SandboxReport.File.SHA256
+      description: The SHA256 of uploaded file
+      type: String
+    - contextPath: ThreatStream.SandboxReport.File.SHA512
+      description: The SHA512 of uploaded file
+      type: String
+    - contextPath: ThreatStream.SandboxReport.File.CRC32
+      description: The CRC32 of uploaded file
+      type: String
+    - contextPath: ThreatStream.SandboxReport.File.Ssdeep
+      description: The Ssdeep of uploaded file
+      type: String
+    - contextPath: ThreatStream.SandboxReport.NetworkUDP.Source
+      description: The source of UDP
+      type: String
+    - contextPath: ThreatStream.SandboxReport.NetworkUDP.Destination
+      description: The destination of UDP
+      type: String
+    - contextPath: ThreatStream.SandboxReport.NetworkUDP.Dport
+      description: The Dport of the UDP
+      type: String
+    - contextPath: ThreatStream.SandboxReport.NetworkICMP.Source
+      description: The ICMP source
+      type: String
+    - contextPath: ThreatStream.SandboxReport.NetworkICMP.Destination
+      description: The destinaton of ICMP
+      type: String
+    - contextPath: ThreatStream.SandboxReport.NetworkICMP.Dport
+      description: The Dport of the ICMP
+      type: String
+    - contextPath: ThreatStream.SandboxReport.NetworkTCP.Source
+      description: The source of TCP
+      type: String
+    - contextPath: ThreatStream.SandboxReport.NetworkTCP.Destinaton
+      description: The destination of TCP
+      type: String
+    - contextPath: ThreatStream.SandboxReport.NetworkTCP.Dport
+      description: The Dport of TCP
+      type: String
+    - contextPath: ThreatStream.SandboxReport.Domains.IP
+      description: The IP of domain from network analysis
+      type: String
+    - contextPath: ThreatStream.SandboxReport.Domains.Domain
+      description: The domain from network analysis
+      type: String
+  - deprecated: false
+    description: Returns list of supported platforms
+    execution: false
+    name: threatstream-get-supported-platforms-sandbox
   isfetch: false
   runonce: false
   script: '-'
