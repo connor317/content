@@ -1007,6 +1007,10 @@ script:
     description: Returns list of supported platforms
     execution: false
     name: threatstream-get-supported-platforms-sandbox
+  - deprecated: false
+    description: ask about this one in design
+    execution: false
+    name: threatstream-get-indicators
   isfetch: false
   runonce: false
   script: '-'
