@@ -46,6 +46,8 @@ script: |-
           stix_type_and_value = "[file:hashes.sha256 = '" + value + "']"
       elif "IP".lower() == demisto_indicator_type.lower():
           stix_type_and_value = "[ipv4-addr:value = '" + value + "']"
+      elif "IPv4".lower() == demisto_indicator_type.lower():
+          stix_type_and_value = "[ipv4-addr:value = '" + value + "']"
       elif "URL".lower() in demisto_indicator_type.lower():
           stix_type_and_value = "[url:value = '" + value + "']"
       elif "Email".lower() in demisto_indicator_type.lower():
