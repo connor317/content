@@ -1011,6 +1011,40 @@ script:
     description: ask about this one in design
     execution: false
     name: threatstream-get-indicators
+  - arguments:
+    - auto: PREDEFINED
+      default: false
+      defaultValue: intelligence
+      description: The type of threat model entity on which the tag is added
+      isArray: false
+      name: model
+      predefined:
+      - actor
+      - ' campaign'
+      - ' incident'
+      - ' intelligence'
+      - ' signature'
+      - ' tipreport'
+      - ' ttp'
+      - ' vulnerability'
+      required: true
+      secret: false
+    - default: false
+      description: 'Tags applied to the specified threat model entities or observable. '
+      isArray: true
+      name: tags
+      required: true
+      secret: false
+    - default: false
+      description: The model ID
+      isArray: false
+      name: model-id
+      required: true
+      secret: false
+    deprecated: false
+    description: Add tags to intelligence for purposes of filtering for related entities
+    execution: false
+    name: threatstream-add-tag-to-model
   isfetch: false
   runonce: false
   script: '-'
