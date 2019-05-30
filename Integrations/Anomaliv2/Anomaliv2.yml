@@ -879,6 +879,48 @@ script:
     description: Submits files or URLs to the ThreatStream-hosted Sandbox
     execution: false
     name: threatstream-submit-to-sandbox
+    outputs:
+    - contextPath: ThreatStream.Sandbox.ID
+      description: The report ID that was detonated to sandbox
+      type: String
+    - contextPath: ThreatStream.Sandbox.Status
+      description: The status of report that was detonated to sandbox
+      type: String
+    - contextPath: ThreatStream.Sandbox.Platform
+      description: The platform of report that was detonated to sanbox
+      type: String
+  - arguments:
+    - default: false
+      description: Report ID to check status
+      isArray: false
+      name: report-id
+      required: true
+      secret: false
+    deprecated: false
+    description: Returns the current status of report that was submitted to sandbox
+    execution: false
+    name: threatstream-get-report-status-form-sandbox
+    outputs:
+    - contextPath: ThreatStream.Sandbox.ID
+      description: The report ID that was detonated to sandbox
+      type: String
+    - contextPath: ThreatStream.Sandbox.Status
+      description: The status of report that was detonated to sandbox
+      type: String
+    - contextPath: ThreatStream.Sandbox.Platform
+      description: The platform of report that was detonated to sanbox
+      type: String
+  - arguments:
+    - default: false
+      description: Report ID to return
+      isArray: false
+      name: report-id
+      required: true
+      secret: false
+    deprecated: false
+    description: Returns report of file or URL that was submitted to sandbox
+    execution: false
+    name: threatstream-get-report-from-sandbox
   isfetch: false
   runonce: false
   script: '-'
